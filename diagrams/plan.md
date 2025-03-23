@@ -1,0 +1,19 @@
+```mermaid
+flowchart TD
+analysis["Duomenų saugyklos pasirinkimas"]
+guidelines("Gairių / dokumentacijos kūrimas")
+integrate("Duomenų saugyklos integracija su aplikacija")
+requirements("Archyvavimo proceso funkcinių ir nefunkcinių reikalavimų analizė")
+env("Kūrimo, testavimo ir produkcijos aplinkų paruošimas")
+process("Archyvavimo proceso įgyvendinimas")
+presentation("Sprendimo pristatymas departamentui")
+
+requirements --o data[/"Duomenų gyvavimo ciklas"/]
+requirements --o nfr[/"Archyvavimo proceso parametrai (laikas, trukmė, įrašų kiekis)"/]
+analysis --o db[("Archyvų saugykla 
+S3 on-prem / S3 Minio / FileServer")]
+
+analysis --> integrate & env
+integrate --> requirements
+env & requirements --> guidelines --> process --> presentation
+```
