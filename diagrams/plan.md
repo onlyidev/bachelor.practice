@@ -1,4 +1,8 @@
 ```mermaid
+---
+config:
+  layout: elk
+---
 flowchart TD
 analysis["Duomenų saugyklos pasirinkimas"]
 guidelines("Gairių / dokumentacijos kūrimas")
