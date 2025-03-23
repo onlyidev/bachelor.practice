@@ -1,0 +1,93 @@
+\section{Praktikos veiklos aprašymas}
+
+\begin{activities}
+    \veikla{Duomenų saugyklos pasirinkimas}
+    \aprasymas{
+        Peržiūrėtos organizacijoje naudojamos duomenų saugyklos. Atrinkti 3 galimi variantai:
+        \begin{enumerate}
+            \item \textit{S3 on-prem} -- duomenų saugykla, palaikanti S3 protokolą \angl{S3 Compatible Storage}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
+            \item \textit{S3 Minio}~\cite{CITE} -- duomenų saugykla, palaikanti S3 protokolą. Ši saugykla veikia konteinerizuotoje aplinkoje. Kiekviena sistema gali turėti savo \textit{Minio} komponentą ir ten kaupti duomenis. Tokiu atveju už šį komponentą atsakinga sistemą prižiūrinti komanda.
+            \item \textit{Failų serveris \angl{File Server}} -- duomenų saugykla, palaikanti SFTP \textit{(Secure File Transfer Protocol)}~\cite{CITE}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
+        \end{enumerate}
+
+        Dėl organizacijoje priimtos strategijos, failų serverio varianto buvo
+        atsisakyta iškart. \textit{S3 Minio} variantas atmestas dėl netinkamo panaudos
+        atvejo. Pagal vidinius dokumentus, ši saugykla tinkama aktyviam objektų
+        saugojimui ir naudojimui, tačiau neturėtų būti naudojama kaip archyvas. }
+    \rezultatai{ Pasirinkta \textit{S3 on-prem} duomenų saugykla. } \row
+
+    \veikla{Kūrimo aplinkos paruošimas}
+    \aprasymas{
+        \begin{itemize}
+            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais paruošti
+                  kūrimo aplinkai tinkamą \textit{S3 on-prem} duomenų saugyklą. Kūrimo aplinkai
+                  numatyti maži saugyklos dydžio reikalavimai bei laisva prieiga prie duomenų
+                  saugyklos konfigūracijos.
+            \item Dėl organizacijos tinklo architektūros sukurtas tinklo tunelis tarp kūrimo
+                  aplinkos ir duomenų saugyklos, leidžiantis kūrimo aplinkai pasiekti duomenų
+                  saugyklos tinklo zoną.
+        \end{itemize}
+    }
+    \rezultatai {
+        Paruošta saugyklos kūrimo aplinka. Gauti prisijungimo duomenys su administratoriaus teisėmis.
+    }
+    \row
+
+    \veikla{Duomenų saugyklos integracija su aplikacija}
+    \aprasymas{
+        Integracija atliekama su \textit{Java} virtualioje mašinoje \angl{Java Virtual Machine -- JVM} veikiančia aplikacija, parašyta naudojant \textit{Spring Boot} karkasą.
+        Integracijos žingsniai:
+        \begin{enumerate}
+            \item S3 SDK \angl{Software Development Kit} bibliotekos konfigūravimas.
+            \item S3 komponento, gebančio atlikti pagrindinius veiksmus su duomenų saugykla
+                  programavimas. Praktikos užduoties kontekste pagrindiniai veiksmai suprantami
+                  kaip:
+                  \begin{itemize}
+                      \item duomenų įkėlimas į duomenų saugyklą,
+                      \item individualių duomenų atsiuntimas iš duomenų saugyklos,
+                      \item duomens paieška pagal identifikatorių ar jo pradžią \angl{prefix},
+                      \item asinchroninis išlygiagretintas didelio duomenų kiekio įkėlimas į duomenų
+                            saugyklą.
+                  \end{itemize}
+            \item S3 komponento funkcijų jungiklio \angl{feature flag} konfigūravimas.
+            \item S3 komponento modulių testavimas.
+            \item Rankinis S3 komponento testavimas.
+        \end{enumerate}
+    }
+    \rezultatai {
+        Sėkmingai įgyvendinta duomenų saugyklos integracija su aplikacija.
+    }
+    \row
+
+    \veikla{Archyvavimo proceso funkcinių ir nefunkcinių reikalavimų analizė}
+    \aprasymas{
+        Funkcinių ir nefunkcinių reikalavimų analizė atlikta kalbantis su programų sistemų kūrėjais, verslo analitikais bei sprendimų architektais. Svarbiausios įžvalgos iš šių vartotojų:
+        \begin{itemize}
+            \item Kartais reikalinga galimybė atlikti paiešką pagal sudėtingas SQL užklausas,
+                  ypač naujesniems versijavimo duomenims.
+            \item Verslo analitikai neturi galimybės patys peržiūrėti versijavimo duomenų, tad
+                  dažniausiai kreipiasi į programų sistemų kūrėjus.
+            \item Su duomenų bazėje esamu duomenų kiekiu pirmasis archyvavimas gali užtrukti
+                  kelias dienas, o tai sulėtintų sistemos darbą.
+        \end{itemize}
+    }
+    \rezultatai{
+        \textbf{Funkciniai reikalavimai:}
+        \begin{itemize}
+            \item Archyvavimo procesas turi archyvuoti senesnius, nei 3 mėnesių versijavimo
+                  duomenis.
+            \item Versijavimo duomenys turi būti pasiekiami per grafinę vartotojo sąsają.
+            \item Grafinėje vartotojo sąsajoje turi būti galimybė palyginti 2 tokio pat tipo
+                  įrašus.
+            \item Archyvavimo procesas turi vykti nakties metu.
+        \end{itemize}
+
+        \textbf{Nefunkciniai reikalavimai:}
+        \begin{itemize}
+            \item Archyvavimo procesas turi užtrukti \le 1h.
+            \item (\rightarrow \textit{išvestinis reikalavimas}) Archyvavimo procesas vienu metu turi archyvuoti \le 1M vieno tipo įrašų.
+        \end{itemize}
+    }
+    \row
+
+\end{activities}

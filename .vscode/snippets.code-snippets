@@ -1,0 +1,12 @@
+{
+	"veikla": {
+		"scope": "latex",
+		"body": [
+			"\\veikla{$0}",
+			"\\aprasymas{}",
+			"\\rezultatai{}",
+			"\\row"
+		],
+		"prefix": "veikla"
+	}
+}

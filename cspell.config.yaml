@@ -4,5 +4,9 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - ergonomiška
+  - išlygiagretintas
+  - konteinerizuotoje
 ignoreWords: []
 import: []
+enabled: true
+language: en,lt

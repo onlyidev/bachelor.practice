@@ -1,0 +1,38 @@
+% \newenvironment{activities}{
+%     \newcommand{\veikla}[1]{\gdef\Veikla{##1}}
+%     \newcommand{\aprasymas}[1]{\gdef\Aprasymas{##1}}
+%     \newcommand{\rezultatai}[1]{\gdef\Rezultatai{##1}}
+
+%     \def\Veikla{}
+%     \def\Aprasymas{}
+%     \def\Rezultatai{}
+
+%     \newcommand{\row}{\Veikla & \Aprasymas & \Rezultatai \\}
+
+%     \begin{longtable}{p{0.15\textwidth}|p{0.5\textwidth}|p{0.35\textwidth}}
+%         \noindent
+%         \textbf{Veikla} & \textbf{Aprašymas} & \textbf{Rezultatai} \\ \toprule
+% }{
+%     \end{longtable}
+% }
+
+
+\newenvironment{activities}{
+    \newcommand{\veikla}[1]{\gdef\Veikla{##1}}
+    \newcommand{\aprasymas}[1]{\gdef\Aprasymas{##1}}
+    \newcommand{\rezultatai}[1]{\gdef\Rezultatai{##1}}
+
+    \def\Veikla{}
+    \def\Aprasymas{}
+    \def\Rezultatai{}
+
+    \newcommand{\row}{
+        \subsection{\Veikla}
+        \subsubsection*{Veiklos aprašymas} 
+        \Aprasymas
+        \subsubsection*{Veiklos rezultatai} 
+        \Rezultatai
+    }
+
+}
+
