@@ -10,7 +10,7 @@
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/5
             % milestone: citations
             \item \textit{S3 Minio}~\cite{CITE} -- duomenų saugykla, palaikanti S3 protokolą. Ši saugykla veikia konteinerizuotoje aplinkoje. Kiekviena sistema gali turėti savo \textit{Minio} komponentą ir ten kaupti duomenis. Tokiu atveju už šį komponentą atsakinga sistemą prižiūrinti komanda.
-            % TODO: Add SFTO citation
+            % TODO: Add SFTP citation
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/4
             % milestone: citations
             \item \textit{Failų serveris \angl{File Server}} -- duomenų saugykla, palaikanti SFTP \textit{(Secure File Transfer Protocol)}~\cite{CITE}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
@@ -90,13 +90,83 @@
 
         \textbf{Nefunkciniai reikalavimai:}
         \begin{itemize}
-            \item Archyvavimo procesas turi užtrukti \le 1h.
-            \item (\rightarrow \textit{išvestinis reikalavimas}) Archyvavimo procesas vienu metu turi archyvuoti \le 1M vieno tipo įrašų.
+            \item Archyvavimo procesas turi užtrukti \le 1~val.
+            \item (\rightarrow \textit{išvestinis reikalavimas}) Archyvavimo procesas vienu metu turi archyvuoti \le 1~M vieno tipo įrašų.
         \end{itemize}
         
         % TODO(!Data): Add Data Lifecycle diagram 
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/3
         % 
+    }
+    \row
+
+    \veikla{Gairių / dokumentacijos kūrimas}
+    \aprasymas{
+        % TODO: Cite S3 Best Practices
+        % milestone: citations
+        Specifinių aplikacijos duomenų archyvavimo panaudos atvejis su pasirinkta technologija dar nebuvo dokumentuotas vidinėje organizacijos dokumentų sistemoje, tad kūrimo fazės metu analizuota S3 dokumentacija, geriausios praktikos \cite{CITE} bei jomis remiantis priimti sprendimai (pvz.~duomenų kategorizavimo strategija) buvo suglaudinti ir aprašyti į S3 naudojimo gairių dokumentą. Taip pat sukurtas ir polapis sistemos (aplikacijos) dokumente, aprašantis konkretaus sprendimo įgyvendinimą.
+    }
+    \rezultatai{
+        Paruoštos S3 naudojimo gairės, panaudos atvejis dokumentuotas. Dokumentai patalpinti organizacijos vidinėje sistemoje.
+    }
+    \row
+
+    \veikla{Testavimo ir produkcijos aplinkų paruošimas}
+    \aprasymas{
+        \begin{itemize}
+            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais paruošti
+                  testavimo aplinkai tinkamą \textit{S3 on-prem} duomenų saugyklą. Testavimo aplinkai
+                  numatyti vidutiniai saugyklos dydžio reikalavimai, duomenų gyvavimo ciklas sutrumpintas iki 6 mėn., programų sistemų kūrėjams suteikiama tik duomenų peržiūros teisė \angl{read-only, RO}.
+            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais paruošti
+                  produkcinei aplinkai tinkamą \textit{S3 on-prem} duomenų saugyklą. Produkcinei aplinkai
+                  numatyti dideli (palyginus su esamu duomenų kiekiu) saugyklos dydžio reikalavimai, prieiga apribota tik techniniam vartotojui (aplikacijai).
+            % TODO: Cite S3 Buckets
+            % milestone: citations
+            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais sukurti aukšto lygio S3 kategorijas \angl{S3 buckets} \cite{CITE} paruoštose aplinkose.
+            \item Aplikacijos konfigūracijose užpildyti S3 parametrai.
+        \end{itemize}
+    }
+    \rezultatai {
+        \begin{itemize}
+            \item Paruoštos testavimo ir produkcinė saugyklos aplinkos.
+            \item Gauti \textit{RO} prisijungimo duomenys į testavimo aplinką.
+            \item Aplinkose paruoštos aukšto lygio S3 kategorijos.
+        \end{itemize}
+    }
+    \row
+
+    \veikla{Archyvavimo proceso įgyvendinimas}
+    \aprasymas{
+        \begin{itemize}
+            \item Archyvavimo proceso komponento programavimas.
+            \item Archyvavimo proceso modulių testų rašymas.
+            \item Nuolatinio \angl{scheduled} naktinio proceso konfigūravimas.
+            \item Užpildytas \SD~dokumentas monitoringo komandai su reikalavimais produkcinėje aplinkoje paruošti naktinio archyvavimo proceso stebėjimą pagal apibrėžtus nefunkcinius reikalavimus.
+        \end{itemize}
+    }
+    \rezultatai{
+        Įgyvendintas archyvavimo procesas, paruošti automatiniai monitoringo pranešimai, jei netenkinami nefunkciniai proceso reikalavimai. 
+    }
+    \row
+
+    \veikla{Vartotojo sąsajos kūrimas}
+    \aprasymas{
+        % TODO: Cite MVC
+        % milestone: citations
+        Archyvų peržiūros vartotojo sąsaja pasirinkta įgyvendinti kaip naują puslapį jau esamoje sąsajoje, sekančioje MVC \textit{(Model-View-Controller)} \cite{CITE} šabloną.
+    }
+    \rezultatai{
+        Sukurta vartotojo sąsaja, įgyvendintanti su susijusius funkcinius reikalavimus.
+        % TODO(!Data): Add UI images 
+    }
+    \row
+    
+    \veikla{Sprendimo pristatymas}
+    \aprasymas{
+        Įgyvendinto sprendimo, vartotojo sąsajos bei S3 naudojimo gairių pristatymas skyriaus kolegoms. 
+    }
+    \rezultatai{
+        Skyriaus kolegos informuoti apie problematiką, priimtus bei įgyvendintus sprendimus.
     }
     \row
 
