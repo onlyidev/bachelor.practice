@@ -6,7 +6,11 @@
         Peržiūrėtos organizacijoje naudojamos duomenų saugyklos. Atrinkti 3 galimi variantai:
         \begin{enumerate}
             \item \textit{S3 on-prem} -- duomenų saugykla, palaikanti S3 protokolą \angl{S3 Compatible Storage}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
+            % TODO: Add Minio citation
+            % milestone: citations
             \item \textit{S3 Minio}~\cite{CITE} -- duomenų saugykla, palaikanti S3 protokolą. Ši saugykla veikia konteinerizuotoje aplinkoje. Kiekviena sistema gali turėti savo \textit{Minio} komponentą ir ten kaupti duomenis. Tokiu atveju už šį komponentą atsakinga sistemą prižiūrinti komanda.
+            % TODO: Add SFTO citation
+            % milestone: citations
             \item \textit{Failų serveris \angl{File Server}} -- duomenų saugykla, palaikanti SFTP \textit{(Secure File Transfer Protocol)}~\cite{CITE}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
         \end{enumerate}
 
@@ -87,6 +91,9 @@
             \item Archyvavimo procesas turi užtrukti \le 1h.
             \item (\rightarrow \textit{išvestinis reikalavimas}) Archyvavimo procesas vienu metu turi archyvuoti \le 1M vieno tipo įrašų.
         \end{itemize}
+        
+        % TODO(!Data): Add Data Lifecycle diagram 
+        % 
     }
     \row
 
