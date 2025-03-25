@@ -6,14 +6,10 @@
         Peržiūrėtos organizacijoje naudojamos duomenų saugyklos. Atrinkti 3 galimi variantai:
         \begin{enumerate}
             \item \textit{S3 on-prem} -- duomenų saugykla, palaikanti S3 protokolą \angl{S3 Compatible Storage}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
-            % TODO: Add Minio citation
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/5
-            % milestone: citations
-            \item \textit{S3 Minio}~\cite{CITE} -- duomenų saugykla, palaikanti S3 protokolą. Ši saugykla veikia konteinerizuotoje aplinkoje. Kiekviena sistema gali turėti savo \textit{Minio} komponentą ir ten kaupti duomenis. Tokiu atveju už šį komponentą atsakinga sistemą prižiūrinti komanda.
-            % TODO: Add SFTP citation
+            \item \textit{S3 Minio}~\cite{MinIOS3Compatible} -- duomenų saugykla, palaikanti S3 protokolą. Ši saugykla veikia konteinerizuotoje aplinkoje. Kiekviena sistema gali turėti savo \textit{Minio} komponentą ir ten kaupti duomenis. Tokiu atveju už šį komponentą atsakinga sistemą prižiūrinti komanda.
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/4
-            % milestone: citations
-            \item \textit{Failų serveris \angl{File Server}} -- duomenų saugykla, palaikanti SFTP \textit{(Secure File Transfer Protocol)}~\cite{CITE}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
+            \item \textit{Failų serveris \angl{File Server}} -- duomenų saugykla, palaikanti SFTP \textit{(Secure File Transfer Protocol)}~\cite{krishnaSecureFileMulti2011}. Ši saugykla veikia organizacijos valdomuose serveriuose, juos prižiūri IT infrastruktūros skyrius.
         \end{enumerate}
 
         Dėl organizacijoje priimtos strategijos, failų serverio varianto buvo
@@ -81,7 +77,8 @@
         \textbf{Funkciniai reikalavimai:}
         \begin{itemize}
             \item Archyvavimo procesas turi archyvuoti senesnius, nei 3 mėnesių versijavimo
-                  duomenis.
+                  duomenis \zr{fig:data_lifecycle}.
+            \item Archyvuoti duomenys turi būti saugomi 10 metų \zr{fig:data_lifecycle}.
             \item Versijavimo duomenys turi būti pasiekiami per grafinę vartotojo sąsają.
             \item Grafinėje vartotojo sąsajoje turi būti galimybė palyginti 2 tokio pat tipo
                   įrašus.
@@ -94,18 +91,22 @@
             \item (\rightarrow \textit{išvestinis reikalavimas}) Archyvavimo procesas vienu metu turi archyvuoti \le 1~M vieno tipo įrašų.
         \end{itemize}
         
-        % TODO(!Data): Add Data Lifecycle diagram 
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/3
-        % 
+        
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\textwidth]{images/data_lifecycle_blurred.png}
+            \caption{Duomenų gyvavimo ciklo diagrama}
+            \label{fig:data_lifecycle}
+        \end{figure}
+        
     }
     \row
 
     \veikla{Gairių / dokumentacijos kūrimas}
     \aprasymas{
-        % TODO: Cite S3 Best Practices
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/9
-        % milestone: citations
-        Specifinių aplikacijos duomenų archyvavimo panaudos atvejis su pasirinkta technologija dar nebuvo dokumentuotas vidinėje organizacijos dokumentų sistemoje, tad kūrimo fazės metu analizuota S3 dokumentacija, geriausios praktikos \cite{CITE} bei jomis remiantis priimti sprendimai (pvz.~duomenų kategorizavimo strategija) buvo suglaudinti ir aprašyti į S3 naudojimo gairių dokumentą. Taip pat sukurtas ir polapis sistemos (aplikacijos) dokumente, aprašantis konkretaus sprendimo įgyvendinimą.
+        Specifinių aplikacijos duomenų archyvavimo panaudos atvejis su pasirinkta technologija dar nebuvo dokumentuotas vidinėje organizacijos dokumentų sistemoje, tad kūrimo fazės metu analizuota S3 dokumentacija, geriausios praktikos \cite{AmazonSimpleStorage} bei jomis remiantis priimti sprendimai (pvz.~duomenų kategorizavimo strategija) buvo suglaudinti ir aprašyti į S3 naudojimo gairių dokumentą. Taip pat sukurtas ir polapis sistemos (aplikacijos) dokumente, aprašantis konkretaus sprendimo įgyvendinimą.
     }
     \rezultatai{
         Paruoštos S3 naudojimo gairės, panaudos atvejis dokumentuotas. Dokumentai patalpinti organizacijos vidinėje sistemoje.
@@ -121,10 +122,8 @@
             \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais paruošti
                   produkcinei aplinkai tinkamą \textit{S3 on-prem} duomenų saugyklą. Produkcinei aplinkai
                   numatyti dideli (palyginus su esamu duomenų kiekiu) saugyklos dydžio reikalavimai, prieiga apribota tik techniniam vartotojui (aplikacijai).
-            % TODO: Cite S3 Buckets
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/8
-            % milestone: citations
-            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais sukurti aukšto lygio S3 kategorijas \angl{S3 buckets} \cite{CITE} paruoštose aplinkose.
+            \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais sukurti aukšto lygio S3 kategorijas \angl{S3 buckets} \cite{AmazonSimpleStorage} paruoštose aplinkose.
             \item Aplikacijos konfigūracijose užpildyti S3 parametrai.
         \end{itemize}
     }
@@ -153,10 +152,8 @@
 
     \veikla{Vartotojo sąsajos kūrimas}
     \aprasymas{
-        % TODO: Cite MVC
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/7
-        % milestone: citations
-        Archyvų peržiūros vartotojo sąsaja pasirinkta įgyvendinti kaip naują puslapį jau esamoje sąsajoje, sekančioje MVC \textit{(Model-View-Controller)} \cite{CITE} šabloną.
+        Archyvų peržiūros vartotojo sąsaja pasirinkta įgyvendinti kaip naują puslapį jau esamoje sąsajoje, sekančioje MVC \textit{(Model-View-Controller)} \cite{krasner1988description} šabloną.
     }
     \rezultatai{
         Sukurta vartotojo sąsaja, įgyvendintanti su susijusius funkcinius reikalavimus.
