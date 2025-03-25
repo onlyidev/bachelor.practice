@@ -1,3 +1,34 @@
 \section{Rezultatai, išvados ir pasiūlymai}
 
-There will be results
+\subsection{Darbo rezultatai ir išvados}
+
+\subsubsection*{Pagrindiniai rezultatai}
+
+\begin{itemize}
+    \item Išanalizuotos organizacijoje naudojamos objektų saugojimo technologijos ir pasirinkta tinkamiausia specifiniam panaudos atvejui (specifinių aplikacijos duomenų archyvavimui) -- \textit{S3 on-prem}.
+    \item Aplikacijoje suprogramuotos integracijos su \textit{S3 on-prem} sistema komponentas.
+    \item Surinkti bei dokumentuoti archyvavimo proceso reikalavimai.
+    \item Aplikacijoje suprogramuotas archyvavimo proceso komponentas.
+    \item Paruoštas sprendimas įdiegtas visose aplinkose.
+\end{itemize}
+
+\subsubsection*{Išvados}
+
+\begin{itemize}
+    \item Architektūrinis sprendimas integraciją su \textit{S3 on-prem} įgyvendinti kaip atskirą komponentą yra lankstus tiek panaudos atvejų, tiek duomenų, tiek infrastruktūros požiūriu. Pavyzdžiui, kuriant bei įgyvendinant naujus procesus, generuojančius archyvavimui tinkamus duomenis, galima naudotis jau esamu komponentu ir archyvavimą įtraukti į pradinį proceso įgyvendinimą.
+    \item Archyvavimo procesas sprendžia gan paprastą problemą ir iš esmės nėra sudėtingas, tačiau surinkus reikalavimus iš naudotojų, sprendimų architektų, organizacijos vidinių tvarkų bei teisės aktų tampa akivaizdu, jog proceso įgyvendinimas -- netrivialus.
+    \item Atlikus sprendimo diegimą visose aplinkose galima teigti, jog pagrindinsi praktikos tikslas -- \enquote{sukurti automatizuotą versiavimo įrašų archyvavimo sprendimą} -- įgyvendintas.
+    \item Atlikus skaičiavimus su duomenų bazėje esančiu duomenų kiekiu nustatyta, jog po \approx 2 mėn. duomenų bazės versijavimo įrašų lentelė užims \approx 20 kartų mažiau vietos. Tai leidžia teigti, jog pagrindinis praktikos uždavinys -- "atlaisvinti vietą duomenų bazėje ir sumažinti jos apkrovą" -- pasiektas.
+\end{itemize}
+
+\subsection{Praktikos darbo privalumai ir trūkumai}
+
+TODO
+
+\subsection{Žinių įvertinimas}
+
+TODO
+
+\subsection{Rekomendacijos}
+
+TODO
