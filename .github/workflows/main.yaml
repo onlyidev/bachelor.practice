@@ -44,9 +44,8 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.TEX_NAME }}.pdf
-          asset_name: Report.pdf
+          asset_name: Thesis.pdf
           overwrite: true
-      - name: Prepare dist directory
       - name: Prepare dist directory
         run: |
           mv ${{ env.TEX_NAME }}.pdf dist
