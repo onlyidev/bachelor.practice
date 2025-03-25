@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/onlyidev/bachelor.practice/compare/v1.1.0...v1.2.0) (2025-03-25)
+
+
+### Features
+
+* **sections:** :sparkle: Add results and implications ([f1fe4b0](https://github.com/onlyidev/bachelor.practice/commit/f1fe4b0c184e361b63623ec3a3c64df31f727be2))
+
 ## [1.1.0](https://github.com/onlyidev/bachelor.practice/compare/v1.0.0...v1.1.0) (2025-03-23)
 
 
