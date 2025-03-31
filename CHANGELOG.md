@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/onlyidev/bachelor.practice/compare/v1.2.0...v1.3.0) (2025-03-30)
+
+
+### Features
+
+* **sections:** :fire: Add results ([50ce3a2](https://github.com/onlyidev/bachelor.practice/commit/50ce3a2c6c3994244da4ed04edf25377e8cb8135))
+
 ## [1.2.0](https://github.com/onlyidev/bachelor.practice/compare/v1.1.0...v1.2.0) (2025-03-25)
 
 
