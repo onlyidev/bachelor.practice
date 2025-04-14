@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.0](https://github.com/onlyidev/bachelor.practice/compare/v1.3.0...v1.4.0) (2025-04-14)
+
+
+### Features
+
+* **images:** Add UI diff ([446d3b1](https://github.com/onlyidev/bachelor.practice/commit/446d3b118dfb212bb9f17e3d56903c3212f35050))
+* **images:** Added UI images ([b208dcd](https://github.com/onlyidev/bachelor.practice/commit/b208dcd4884fb7ddcdb5875544594a42c2acb609))
+* **plain:** Added make instruction for converting pdf to plain text ([1fc92f7](https://github.com/onlyidev/bachelor.practice/commit/1fc92f732c8c774807845f4ab97b12b46c25a73f))
+
 ## [1.3.0](https://github.com/onlyidev/bachelor.practice/compare/v1.2.0...v1.3.0) (2025-03-30)
 
 
