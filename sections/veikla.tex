@@ -154,16 +154,29 @@
     \aprasymas{
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/7
         Archyvų peržiūros vartotojo sąsaja pasirinkta įgyvendinti kaip naują puslapį jau esamoje sąsajoje, sekančioje MVC \textit{(Model-View-Controller)} \cite{krasner1988description} šabloną.
+        Vartotojo sąsaja susideda trijų dalių:
+        \begin{enumerate}
+            \item \textbf{Įrašų paieška}. Čia nurodomas ieškomo įrašo tipas, įrašo identifikatorius ir nurodoma, ar ieškoti archyvuotų įrašo versijų.
+            \item \textbf{Įrašų lentelė}. Čia rodomi visi pagal paieškos filtrą rasti įrašai. Jie vaizduojami lentelėje, kurios stulpeliai - dinamiški, jų kiekis priklauso nuo įrašuose esančių meta duomenų \zr{fig:ui}.
+            \item \textbf{Įrašų palyginimas}. Lyginami į \textit{JSON} formatą konvertuoti įrašai \zr{fig:ui:diff}.
+        \end{enumerate}
+        
     }
     \rezultatai{
         Sukurta vartotojo sąsaja, įgyvendinanti susijusius funkcinius reikalavimus.
-        % TODO(!Data): Add UI images 
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/6
         \begin{figure}[h]
             \includegraphics[width=0.5\textwidth]{images/ui/1.png}
-            \includegraphics[width=0.5\textwidth]{images/ui/2.png}
+            \includegraphics[width=0.5\textwidth]{images/ui/2.png}            
             \caption{Vartotojo sąsajos pavyzdys}
-            \label{fig:ui1}
+            \label{fig:ui}
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.85\textwidth]{images/ui/3.png}
+            \caption{Įrašų palyginimo vartotojo sąsajos pavyzdys}
+            \label{fig:ui:diff}
         \end{figure}
         
     }
