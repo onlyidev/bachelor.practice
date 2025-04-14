@@ -35,9 +35,9 @@
     }
     \row
 
-    \veikla{Duomenų saugyklos integracija su aplikacija}
+    \veikla{Duomenų saugyklos integracija su programų sistema}
     \aprasymas{
-        Integracija atliekama su \textit{Java} virtualioje mašinoje \angl{Java Virtual Machine -- JVM} veikiančia aplikacija, parašyta naudojant \textit{Spring Boot} karkasą.
+        Integracija atliekama su \textit{Java} virtualioje mašinoje \angl{Java Virtual Machine -- JVM} veikiančia programa, parašyta naudojant \textit{Spring Boot} karkasą.
         Integracijos žingsniai:
         \begin{enumerate}
             \item S3 SDK \angl{Software Development Kit} bibliotekos konfigūravimas.
@@ -57,7 +57,7 @@
         \end{enumerate}
     }
     \rezultatai {
-        Sėkmingai įgyvendinta duomenų saugyklos integracija su aplikacija.
+        Sėkmingai įgyvendinta duomenų saugyklos integracija su programų sistema.
     }
     \row
 
@@ -106,7 +106,7 @@
     \veikla{Gairių / dokumentacijos kūrimas}
     \aprasymas{
         % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/9
-        Specifinių aplikacijos duomenų archyvavimo panaudos atvejis su pasirinkta technologija dar nebuvo dokumentuotas vidinėje organizacijos dokumentų sistemoje, tad kūrimo fazės metu analizuota S3 dokumentacija, geriausios praktikos \cite{AmazonSimpleStorage} bei jomis remiantis priimti sprendimai (pvz.~duomenų kategorizavimo strategija) buvo suglaudinti ir aprašyti į S3 naudojimo gairių dokumentą. Taip pat sukurtas ir polapis sistemos (aplikacijos) dokumente, aprašantis konkretaus sprendimo įgyvendinimą.
+        Specifinių programos duomenų archyvavimo panaudos atvejis su pasirinkta technologija dar nebuvo dokumentuotas vidinėje organizacijos dokumentų sistemoje, tad kūrimo fazės metu analizuota S3 dokumentacija, geriausios praktikos \cite{AmazonSimpleStorage} bei jomis remiantis priimti sprendimai (pvz.~duomenų kategorizavimo strategija) buvo suglaudinti ir aprašyti į S3 naudojimo gairių dokumentą. Taip pat sukurtas ir polapis programų sistemos dokumente, aprašantis konkretaus sprendimo įgyvendinimą.
     }
     \rezultatai{
         Paruoštos S3 naudojimo gairės, panaudos atvejis dokumentuotas. Dokumentai patalpinti organizacijos vidinėje sistemoje.
@@ -121,10 +121,10 @@
                   numatyti vidutiniai saugyklos dydžio reikalavimai, duomenų gyvavimo ciklas sutrumpintas iki 6 mėn., programų sistemų kūrėjams suteikiama tik duomenų peržiūros teisė \angl{read-only, RO}.
             \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais paruošti
                   produkcinei aplinkai tinkamą \textit{S3 on-prem} duomenų saugyklą. Produkcinei aplinkai
-                  numatyti dideli (palyginus su esamu duomenų kiekiu) saugyklos dydžio reikalavimai, prieiga apribota tik techniniam vartotojui (aplikacijai).
+                  numatyti dideli (palyginus su esamu duomenų kiekiu) saugyklos dydžio reikalavimai, prieiga apribota tik techniniam vartotojui (programai).
             % Issue URL: https://github.com/onlyidev/bachelor.practice/issues/8
             \item Užpildytas \SD~dokumentas infrastruktūros komandai su reikalavimais sukurti aukšto lygio S3 kategorijas \angl{S3 buckets} \cite{AmazonSimpleStorage} paruoštose aplinkose.
-            \item Aplikacijos konfigūracijose užpildyti S3 parametrai.
+            \item Programų sistemos konfigūracijose užpildyti S3 parametrai.
         \end{itemize}
     }
     \rezultatai {
