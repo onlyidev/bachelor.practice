@@ -1,4 +1,4 @@
-NAME:=lk_bachelor_thesis_alpha
+NAME:=main
 TEX_NAME:=main.tex
 PDF_NAME:=$(NAME).pdf
 LATEXMK_BASE_FLAGS:=-lualatex -file-line-error -Werror -emulate-aux-dir -aux-directory=out
@@ -24,6 +24,11 @@ wordcount:
 .PHONY: check
 check:
 	chktex $(TEX_NAME)
+
+.PHONY: plain
+plain: 
+	pdftotext $(NAME).pdf $(NAME).txt -enc UTF-8
+	@echo "Plain text file created: $(NAME).txt"
 
 .PHONY: clean
 clean:
