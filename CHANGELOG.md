@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/onlyidev/bachelor.practice/compare/v1.4.0...v1.4.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* **grammar:** Metodologija --&gt; metodika ([643fa9e](https://github.com/onlyidev/bachelor.practice/commit/643fa9e1f426b7962515280d6845c402e6c99419))
+
 ## [1.4.0](https://github.com/onlyidev/bachelor.practice/compare/v1.3.0...v1.4.0) (2025-04-14)
 
 
